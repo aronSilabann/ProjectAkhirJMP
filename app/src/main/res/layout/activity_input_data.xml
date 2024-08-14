@@ -1,10 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".InputData">
+    tools:context=".InputData"
+    android:layout_margin="50dp"
+    android:layout_marginTop="60dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <EditText
+        android:id="@+id/masukkanumur"
+        android:layout_width="296dp"
+        android:layout_height="44dp"
+        android:ems="10"
+        android:hint="Masukkan Umur"
+        android:inputType="text"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/masukkannama"/>/>
+
+    <EditText
+        android:id="@+id/masukkannama"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView3"
+        android:layout_marginTop="60dp"
+        android:ems="10"
+        android:hint="Masukkan Nama"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/masukkanmotto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/masukkanumur"
+        android:layout_marginTop="49dp"
+        android:ems="10"
+        android:hint="Masukkan Motto"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/btninputdata"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/masukkanmotto"
+        android:layout_marginTop="52dp"
+        android:text="simpan" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="158dp"
+        android:layout_height="165dp"
+        android:layout_centerHorizontal="true"
+        tools:srcCompat="@tools:sample/avatars" />
+</RelativeLayout>
