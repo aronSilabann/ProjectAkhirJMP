@@ -16,71 +16,84 @@
         android:gravity="center"
         android:background="#f5f5f5">
 
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="178dp"
+            android:layout_height="210dp"
+            app:srcCompat="@drawable/logo" />
+
         <TextView
             android:id="@+id/usernameLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Username"
-            android:textSize="18sp"
-            android:textColor="#333333"
             android:layout_marginBottom="8dp"
-            />
+            android:textColor="#333333"
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/username"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_width="384dp"
+            android:layout_height="65dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/edittext_background"
-            android:padding="10dp"
             android:backgroundTint="@color/light_blue"
+            android:hint="Username"
+
+            android:padding="10dp"
             tools:ignore="SpeakableTextPresentCheck" />
+
         <TextView
             android:id="@+id/passwordLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Password"
-            android:textSize="18sp"
+            android:layout_marginBottom="8dp"
             android:textColor="#333333"
-            android:layout_marginBottom="8dp"/>
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/editTextTextPassword"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_width="384dp"
+            android:layout_height="63dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/edittext_background"
+            android:backgroundTint="@color/light_blue"
+            android:hint="Password"
             android:inputType="textPassword"
             android:padding="10dp"
-            android:backgroundTint="@color/light_blue"
             tools:ignore="SpeakableTextPresentCheck" />
 
         <Button
             android:id="@+id/login"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_width="387dp"
+            android:layout_height="61dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#6200EE"
             android:text="Login"
             android:textColor="#ffffff"
-            android:backgroundTint="#6200EE"
-            android:layout_marginBottom="16dp"/>
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/noAccountLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Belum punya akun?"
-            android:textSize="16sp"
+            android:layout_marginBottom="8dp"
             android:textColor="#333333"
-            android:layout_marginBottom="8dp"/>
+            android:textSize="16sp"
+            tools:text="Belum punya akun?" />
 
         <Button
             android:id="@+id/reg"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#ffffff"
             android:text="Register"
             android:textColor="#6200EE"
-            android:backgroundTint="#ffffff"
-            android:layout_marginBottom="16dp"/>
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
