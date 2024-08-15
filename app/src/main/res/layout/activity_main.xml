@@ -11,59 +11,91 @@
 
     <Button
         android:id="@+id/keluar"
-        android:layout_width="135dp"
-        android:layout_height="102dp"
-        android:layout_margin="16dp"
+        android:layout_width="133dp"
+        android:layout_height="68dp"
+        android:layout_below="@id/inputdata"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginBottom="16dp"
         android:background="@android:color/holo_blue_light"
         android:text="Keluar"
-        android:layout_alignParentRight="true"
-        android:layout_below="@id/inputdata"
         android:textColor="@android:color/white"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:icon="@drawable/logout"
+        app:iconTint="@color/white" />
 
     <Button
         android:id="@+id/informasiaplikasi"
         android:layout_width="137dp"
-        android:layout_height="103dp"
-        android:layout_margin="16dp"
-        android:background="@android:color/holo_blue_light"
-        android:text="Informasi Aplikasi"
-        android:textColor="@android:color/white"
+        android:layout_height="68dp"
         android:layout_below="@id/lihatdata"
-        android:textStyle="bold" />
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@android:color/holo_blue_light"
+        android:text="Informasi"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:drawableStart="@drawable/infosss"
+        android:drawablePadding="8dp" />
+
 
     <Button
         android:id="@+id/inputdata"
-        android:layout_width="137dp"
-        android:layout_height="99dp"
+        android:layout_width="136dp"
+        android:layout_height="64dp"
         android:layout_below="@id/imageView2"
-        android:layout_margin="16dp"
-        android:layout_marginTop="7dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="0dp"
         android:layout_marginBottom="16dp"
         android:background="@android:color/holo_blue_light"
         android:text="Input Data"
-        android:layout_alignParentRight="true"
+        android:textAlignment="center"
         android:textColor="@android:color/white"
-        android:textStyle="bold" />
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:icon="@drawable/addname" />
 
     <Button
         android:id="@+id/lihatdata"
+        android:layout_width="137dp"
+        android:layout_height="64dp"
         android:layout_below="@id/imageView2"
-        android:layout_width="140dp"
-        android:layout_height="99dp"
-        android:layout_margin="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
         android:background="@android:color/holo_blue_light"
         android:text="Lihat Data"
+        android:textAlignment="center"
         android:textColor="@android:color/white"
-        android:textStyle="bold" />
+        android:textSize="16sp"
+        app:icon="@drawable/lihatdata" />
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="match_parent"
-        android:layout_height="190dp"
-        app:srcCompat="@drawable/logo"
-        android:layout_marginBottom="85dp"
-        android:paddingBottom="16dp"/>
+        android:layout_width="305dp"
+        android:layout_height="238dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="65dp"
+        android:paddingBottom="16dp"
+        app:srcCompat="@drawable/iicons" />
 
 
 </RelativeLayout>

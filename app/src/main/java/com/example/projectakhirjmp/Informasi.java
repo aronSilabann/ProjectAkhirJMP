@@ -1,24 +1,27 @@
 package com.example.projectakhirjmp;
 
-import android.os.Bundle;
 
-import androidx.activity.EdgeToEdge;
+import android.os.Bundle;
+import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class Informasi extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_informasi);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+
+        // Mendapatkan referensi ke TextView
+        TextView informasiTextView = findViewById(R.id.informasiTextView);
+
+        // Menetapkan teks informasi
+        String informasi = "Selamat datang Aplikasi OSBORN\n\n" +
+                "Aplikasi ini dibuat untuk membantu Pendataan costumer. \n" +
+                "OSBORN bergerak dalam bidang Farmasi \n" +
+                "Kami harap Pelayanan kami menjadi kepuasan anda!";
+
+        // Menampilkan informasi pada TextView
+        informasiTextView.setText(informasi);
     }
 }

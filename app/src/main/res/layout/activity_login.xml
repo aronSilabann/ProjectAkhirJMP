@@ -5,22 +5,24 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layoutDescription="@xml/activity_login_scene"
+    android:gravity="center"
+    android:layout_margin="25dp"
     tools:context=".Login">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center"
         android:orientation="vertical"
         android:padding="16dp"
-        android:gravity="center"
-        android:background="#f5f5f5">
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="62dp">
 
         <ImageView
             android:id="@+id/imageView5"
-            android:layout_width="178dp"
-            android:layout_height="210dp"
-            app:srcCompat="@drawable/logo" />
+            android:layout_width="140dp"
+            android:layout_height="125dp"
+            app:srcCompat="@drawable/login" />
 
         <TextView
             android:id="@+id/usernameLabel"
@@ -31,14 +33,11 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/username"
-            android:layout_width="384dp"
+            android:id="@+id/usernameonlogin"
+            android:layout_width="match_parent"
             android:layout_height="65dp"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/edittext_background"
-            android:backgroundTint="@color/light_blue"
+            android:layout_marginBottom="-20dp"
             android:hint="Username"
-
             android:padding="10dp"
             tools:ignore="SpeakableTextPresentCheck" />
 
@@ -51,49 +50,59 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/editTextTextPassword"
-            android:layout_width="384dp"
+            android:id="@+id/passwordonlogin"
+            android:layout_width="match_parent"
             android:layout_height="63dp"
             android:layout_marginBottom="16dp"
-            android:background="@drawable/edittext_background"
-            android:backgroundTint="@color/light_blue"
             android:hint="Password"
             android:inputType="textPassword"
             android:padding="10dp"
             tools:ignore="SpeakableTextPresentCheck" />
 
         <Button
-            android:id="@+id/login"
-            android:layout_width="387dp"
-            android:layout_height="61dp"
+            android:id="@+id/btnLogin"
+            android:layout_width="253dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="16dp"
+
             android:backgroundTint="#6200EE"
             android:text="Login"
             android:textColor="#ffffff"
             android:textSize="16sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/noAccountLabel"
+        <!-- Menempatkan TextView dan Button dalam satu LinearLayout horizontal -->
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:textColor="#333333"
-            android:textSize="16sp"
-            tools:text="Belum punya akun?" />
+            android:layout_height="40dp"
+            android:gravity="center"
 
-        <Button
-            android:id="@+id/reg"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginBottom="16dp"
-            android:backgroundTint="#ffffff"
-            android:text="Register"
-            android:textColor="#6200EE"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:orientation="horizontal">
 
+            <TextView
+                android:id="@+id/noAccountLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Belum punya akun?"
+                android:textAlignment="center"
+                android:textColor="#333333"
+                android:textSize="14sp"
+                android:textStyle="bold|italic" />
 
+            <Button
+                android:id="@+id/btnregisteronlogin"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+
+                android:backgroundTint="#ffffff"
+                android:text="Register"
+                android:textColor="#6200EE"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,9 +17,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COL_1 = "ID";
     private static final String COL_2 = "NAMA";
     private static final String COL_3 = "UMUR";
-    private static final String COL_4 = "MOTTO";
+    private static final String COL_6 = "TANGGAL";
+    private static final String COL_4 = "JKEL";
+    private static final String COL_5 = "ALAMAT";
 
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 4;
 
     public DatabaseHelper(Context context) {
         super(context, USER_DATABASE_NAME, null, DATABASE_VERSION);
@@ -37,7 +39,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 COL_1 + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COL_2 + " TEXT, " +
                 COL_3 + " INTEGER, "+
-                COL_4 + " TEXT)";
+                COL_4 + " TEXT, " +
+                COL_5 + " TEXT, " +
+                COL_6 + " TEXT)";
         db.execSQL(sql);
     }
 
@@ -51,22 +55,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertData(String nama, int umur, String motto) {
+    public boolean insertData(String nama, int umur, String tanggal, String jkel, String alamat) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_2, nama);
         contentValues.put(COL_3, umur);
-        contentValues.put(COL_4, motto);
+        contentValues.put(COL_4, tanggal);
+        contentValues.put(COL_5, jkel);
+        contentValues.put(COL_6, alamat);
         long result = db.insert(TABLE_NAME, null, contentValues);
         return result != -1;
     }
-    public boolean updateData(String id, String nama, int umur , String motto) {
+    public boolean updateData(String id, String nama, int umur ,String tanggal, String jkel, String alamat) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_1, id);
         contentValues.put(COL_2, nama);
         contentValues.put(COL_3, umur);
-        contentValues.put(COL_4, motto);
+        contentValues.put(COL_4, tanggal);
+        contentValues.put(COL_5, jkel);
+        contentValues.put(COL_6, alamat);
         db.update(TABLE_NAME, contentValues, "ID = ?", new String[]{id});
         return true;
     }

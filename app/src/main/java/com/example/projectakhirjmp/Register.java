@@ -52,5 +52,12 @@ public class Register extends AppCompatActivity {
                   Toast.makeText(Register.this, "User Already Exists", Toast.LENGTH_SHORT).show();
               };};
       });
+      btnlogin.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View view) {
+              Intent intent = new Intent(Register.this, Login.class);
+              startActivity(intent);
+          }
+      });
     };
 }

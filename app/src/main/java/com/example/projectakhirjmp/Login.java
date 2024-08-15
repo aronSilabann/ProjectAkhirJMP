@@ -30,10 +30,10 @@ public class Login extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
 
-        btnlogin = findViewById(R.id.login);
-        btnregister = findViewById(R.id.reg);
-        eduserlogin  = findViewById(R.id.username);
-        edpasslogin = findViewById(R.id.editTextTextPassword);
+        btnlogin = findViewById(R.id.btnLogin);
+        btnregister = findViewById(R.id.btnregisteronlogin);
+        eduserlogin  = findViewById(R.id.usernameonlogin);
+        edpasslogin = findViewById(R.id.passwordonlogin);
         dblogin = new DatabaseHelper(this);
 
 

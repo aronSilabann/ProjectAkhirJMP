@@ -6,19 +6,20 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
-
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
-
 public class LihatData extends AppCompatActivity {
-
+    Button buttontambahdata;
     DatabaseHelper myDb;
     ListView listView;
     ArrayList<String> listData;
@@ -31,6 +32,7 @@ public class LihatData extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lihat_data);
 
+        buttontambahdata = findViewById(R.id.btntambahdata);
         listView = findViewById(R.id.listview1);
         editTextSearch = findViewById(R.id.editcari);
         myDb = new DatabaseHelper(this);
@@ -56,38 +58,19 @@ public class LihatData extends AppCompatActivity {
             public void afterTextChanged(Editable s) {}
         });
 
-        // Klik item untuk update data
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String selectedItem = (String) parent.getItemAtPosition(position);
-                String[] itemParts = selectedItem.split("\n");
-                String itemId = itemParts[0].replace("ID: ", "");
-
-                Intent intent = new Intent(LihatData.this, InputData.class);
-                intent.putExtra("ID", itemId);
-                startActivity(intent);
-            }
+        // Tambah data
+        buttontambahdata.setOnClickListener(v -> {
+            Intent intent = new Intent(LihatData.this, InputData.class);
+            startActivity(intent);
         });
 
-        // Tekan lama untuk menghapus data
-        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                String selectedItem = (String) parent.getItemAtPosition(position);
-                String[] itemParts = selectedItem.split("\n");
-                String itemId = itemParts[0].replace("ID: ", "");
+        // Long click untuk opsi lihat, update, atau hapus data
+        listView.setOnItemClickListener((parent, view, position, id) -> {
+            String selectedItem = (String) parent.getItemAtPosition(position);
+            String itemId = getIdByName(selectedItem);
 
-                Integer deletedRows = myDb.deleteData(itemId);
-                if (deletedRows > 0) {
-                    Toast.makeText(LihatData.this, "Data Deleted", Toast.LENGTH_LONG).show();
-                    loadData();
-                    adapter.notifyDataSetChanged();
-                } else {
-                    Toast.makeText(LihatData.this, "Data Not Deleted", Toast.LENGTH_LONG).show();
-                }
-                return true;
-            }
+            showOptionsDialog(itemId);
+
         });
     }
 
@@ -98,8 +81,71 @@ public class LihatData extends AppCompatActivity {
             Toast.makeText(this, "No Data Found", Toast.LENGTH_LONG).show();
         } else {
             while (data.moveToNext()) {
-                listData.add("ID: " + data.getString(0) + "\nNama: " + data.getString(1) + "\nUmur: " + data.getString(2)  + "\nMoto: " + data.getString(3));
+                listData.add(data.getString(1)); // Hanya menampilkan nama
             }
+        }
+    }
+
+    // Mengambil ID dari nama
+    private String getIdByName(String name) {
+        Cursor data = myDb.getAllData();
+        while (data.moveToNext()) {
+            if (data.getString(1).equals(name)) {
+                return data.getString(0); // Mengembalikan ID dari nama yang cocok
+            }
+        }
+        return null;
+    }
+
+    private void showOptionsDialog(String itemId) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(LihatData.this);
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.dialog_options, null);
+        builder.setView(dialogView);
+        AlertDialog dialog = builder.create();
+
+        Button btnLihatData = dialogView.findViewById(R.id.btnLihatData);
+        Button btnUpdateData = dialogView.findViewById(R.id.btnUpdateData);
+        Button btnHapusData = dialogView.findViewById(R.id.btnHapusData);
+
+        btnLihatData.setOnClickListener(v -> {
+            lihatData(itemId);
+            dialog.dismiss();
+        });
+
+        btnUpdateData.setOnClickListener(v -> {
+            updateData(itemId);
+            dialog.dismiss();
+        });
+
+        btnHapusData.setOnClickListener(v -> {
+            hapusData(itemId);
+            dialog.dismiss();
+        });
+
+        dialog.show();
+    }
+
+    private void lihatData(String itemId) {
+        Intent intent = new Intent(LihatData.this, InputData.class);
+        intent.putExtra("ID", itemId);
+        startActivity(intent);
+    }
+
+    private void updateData(String itemId) {
+        Intent intent = new Intent(LihatData.this, InputData.class);
+        intent.putExtra("ID", itemId);
+        startActivity(intent);
+    }
+
+    private void hapusData(String itemId) {
+        Integer deletedRows = myDb.deleteData(itemId);
+        if (deletedRows > 0) {
+            Toast.makeText(LihatData.this, "Data Deleted", Toast.LENGTH_LONG).show();
+            loadData();  // Refresh list setelah penghapusan
+            adapter.notifyDataSetChanged();
+        } else {
+            Toast.makeText(LihatData.this, "Data Not Deleted", Toast.LENGTH_LONG).show();
         }
     }
 }

@@ -11,46 +11,70 @@
 
     <EditText
         android:id="@+id/masukkanumur"
-        android:layout_width="296dp"
-        android:layout_height="44dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/masukkannama"
+        android:layout_marginTop="19dp"
         android:ems="10"
         android:hint="Masukkan Umur"
-        android:inputType="text"
-        android:layout_marginTop="10dp"
-        android:layout_below="@id/masukkannama"/>/>
+        android:inputType="text" />
 
     <EditText
         android:id="@+id/masukkannama"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/imageView3"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="73dp"
         android:ems="10"
+        app:icon="@drawable/addname"
         android:hint="Masukkan Nama"
         android:inputType="text" />
 
     <EditText
-        android:id="@+id/masukkanmotto"
+        android:id="@+id/masukkantgllahir"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/masukkanumur"
-        android:layout_marginTop="49dp"
+        android:layout_marginTop="13dp"
+        android:clickable="true"
+        android:focusable="false"
+        android:hint="Tanggal Lahir" />
+
+    <EditText
+        android:id="@+id/masukkanjeniskelamin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/masukkantgllahir"
+        android:layout_marginTop="14dp"
         android:ems="10"
-        android:hint="Masukkan Motto"
+        android:hint="Jenis Kelamin"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/masukkanalamat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/masukkanjeniskelamin"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        app:icon="@drawable/lokasi"
+        android:hint="Masukkan Alamat"
         android:inputType="text" />
 
     <Button
         android:id="@+id/btninputdata"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/masukkanmotto"
+        android:layout_below="@id/masukkanalamat"
         android:layout_marginTop="52dp"
         android:text="simpan" />
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="158dp"
-        android:layout_height="165dp"
+        android:layout_width="148dp"
+        android:layout_height="141dp"
         android:layout_centerHorizontal="true"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:layout_marginTop="25dp"
+        android:src="@drawable/inputdata" />
+
 </RelativeLayout>
