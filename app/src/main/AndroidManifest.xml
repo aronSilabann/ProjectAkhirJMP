@@ -13,6 +13,9 @@
         android:theme="@style/Theme.ProjectAkhirJMP"
         tools:targetApi="31">
         <activity
+            android:name=".tampildata"
+            android:exported="false" />
+        <activity
             android:name=".LihatData"
             android:exported="false" />
         <activity

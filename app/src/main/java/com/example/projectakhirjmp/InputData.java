@@ -62,6 +62,8 @@ public class InputData extends AppCompatActivity {
                     Toast.makeText(InputData.this, "Data Updated", Toast.LENGTH_LONG).show();
                 else
                     Toast.makeText(InputData.this, "Data Not Updated", Toast.LENGTH_LONG).show();
+                Intent intent1 = new Intent(InputData.this, MainActivity.class);
+                startActivity(intent1);
                 finish();
             });
         } else {
@@ -71,6 +73,8 @@ public class InputData extends AppCompatActivity {
                     Toast.makeText(InputData.this, "Data Inserted", Toast.LENGTH_LONG).show();
                 else
                     Toast.makeText(InputData.this, "Data Not Inserted", Toast.LENGTH_LONG).show();
+                Intent intent1 = new Intent(InputData.this, MainActivity.class);
+                startActivity(intent1);
                 finish();
             });
         }

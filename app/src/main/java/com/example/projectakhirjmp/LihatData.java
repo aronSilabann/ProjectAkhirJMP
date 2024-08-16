@@ -127,7 +127,7 @@ public class LihatData extends AppCompatActivity {
     }
 
     private void lihatData(String itemId) {
-        Intent intent = new Intent(LihatData.this, InputData.class);
+        Intent intent = new Intent(LihatData.this, tampildata.class);
         intent.putExtra("ID", itemId);
         startActivity(intent);
     }

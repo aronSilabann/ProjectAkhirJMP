@@ -54,6 +54,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
     }
+    public Cursor getDataById(String id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_NAME + " WHERE ID = ?";
+        Cursor data = db.rawQuery(query, new String[]{id});
+        return data;
+    }
 
     public boolean insertData(String nama, int umur, String tanggal, String jkel, String alamat) {
         SQLiteDatabase db = this.getWritableDatabase();
